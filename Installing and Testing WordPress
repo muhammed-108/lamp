@@ -1,0 +1,25 @@
+Run the following commands to copy all files in the decompressed WordPress directory
+to the root directory of the httpd service:
+
+cd /home/wordpress/wordpress/
+cp -r * /var/www/html
+ls /var/www/html
+
+Note: During the copy, the system asks you whether to overwrite the original
+index.php file. Enter y to overwrite the original index.php file. Alternatively, back up
+the original index.php file and copy the file again.
+
+
+After the copy is complete, enter http://Apache_server_EIP/wp-admin/install.php in the
+address box of the browser to start installation, as shown in the following figure.
+
+la yekek la stepakan ama ru ayat
+
+Click Submit. A message is displayed, indicating that the WordPress configuration file
+wp-config.php cannot be found and needs to be manually created, as shown in the
+following figure.
+Manually create wp-config.php in the /var/www/html directory, copy the content
+highlighted in the red box in the preceding figure to the file, and click Run the
+installation. The installation program automatically switches to the configuration page.
+The following figure shows the parameters that have been set.
+
