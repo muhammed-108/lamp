@@ -1,0 +1,28 @@
+Step 1 Install PHP.
+On the Apache host, run the following command to install PHP:
+yum install -y php
+After the installation is complete, run the following command to check whether the
+installation is correct:
+php -v
+
+
+Step 2 Modify Apache configurations.
+Add the PHP configuration to the Apache main configuration file as follows.
+
+AddType appliucaton/x-httpd-php .php
+
+To prevent interference, back up or delete all configurations in the previous labs. For
+example, copy all sub-configuration files in conf.d to the new conf.bk directory and
+retain only the php.conf file related to PHP.
+cd /etc/httpd/conf.d
+mkdir conf.bk && mv * conf.bk/
+mv conf.bk/php.conf .
+
+
+Step 3 Verify the configurations.
+Create index.php in the root directory of httpd to test whether Apache and PHP can
+work properly. The content of index.php is as follows:
+<?php
+phpinfo();
+?>
+
