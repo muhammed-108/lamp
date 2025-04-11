@@ -1,0 +1,28 @@
+Step 1 Download and decompress the WordPress installation package.
+Run the following commands on the Apache host to download the WordPress installation
+package:
+cd /home
+mkdir wordpress
+wget https://wordpress.org/latest.tar.gz
+
+Run the following commands to decompress the downloaded package:
+mv latest.tar.gz wordpress/
+cd wordpress/
+tar -xzf latest.tar.gz
+
+
+
+Step 2 Create the database required by WordPress.
+Create a wordpress database required by WordPress on the MySQL server.
+mysql> CREATE DATABASE wordpress;
+
+
+Create a dedicated user named wp for the database and grant the read and write
+permissions on the database to the user.
+mysql> CREATE USER wp@'%' identified by 'Huawei@123';
+mysql> GRANT ALL PRIVILEGES ON wordpress.* TO 'wp'@'%';
+mysql> FLUSH PRIVILEGES;
+
+After the configuration is complete, check whether you can access the database as user
+wp on the Apache host.
+mysql -h'ipyakat' -uwp -p''Huawei#123'
