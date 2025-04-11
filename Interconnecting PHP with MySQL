@@ -1,0 +1,27 @@
+Step 1 Grant the MySQL access permission.
+This lab uses user root for testing. Check whether user root has the required permissions,
+as shown in the following figure.
+
+yum install -y mysql
+mysql -h'192.168.1.14' -uroot -p'Huawei@123'
+
+
+Step 2 Install the driver for connecting PHP to MySQL.
+Run the following command to install the driver:
+yum install -y php-mysqlnd
+
+Step 3 Compile a test file for connecting PHP to MySQL.
+Create a conn_mysql.php file in the root directory of httpd and enter the following
+content:
+<?php
+$con = mysqli_connect("192.168.1.14","root","Huawei@123");
+if ($con)
+ echo 'OK';
+else
+ echo 'NOT OK';
+$con->close();
+?>
+
+Enter Apache_host_EIP/conn_mysql.php in the address box of the browser to access the
+Apache server and check whether OK is returned.
+
